@@ -63,5 +63,5 @@ THEN a PDF profile is generated
 # Homework Gif
 https://media.giphy.com/media/gkKbnO8NoC2B2D0xyD/giphy.gif
 
-# PDF link
-githubprofile.pdf
+# PDF 
+In images folder
