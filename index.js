@@ -31,38 +31,4 @@ function init() {
       });
   });
 }
-
 init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function writeToFile(fileName, data) {
-//   // Profile image
-//   // User name
-//   // Links to the following:
-//   // User location via Google Maps
-//   // User GitHub profile
-//   // User blog
-//   // User bio
-//   // Number of public repositories
-//   // Number of followers
-//   // Number of GitHub stars
-//   // Number of users following
-// }
