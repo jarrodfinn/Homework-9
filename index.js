@@ -31,15 +31,18 @@ const questions = [
 //   // Number of users following
 // }
 function init() {
-  inquirer.prompt(questions).then(({ githubname, color }) => {
-    console.log(color);
+  inquirer
+  .prompt(questions)
+  .then(({ githubname, color }) => {
     const queryUrl = `https://api.github.com/users/${githubname}`;
-    axios.get(queryUrl).then(function(res) {
-      // console.log(res.data);
+    axios
+    .get(queryUrl)
+    .then(function(res) {
       return generateHtml({color, ...res.data})
-    }).then(html => {
+    })
+    .then(html => {
       pdf.create(html).toStream(function(err, stream){
-        stream.pipe(fs.createWriteStream('./foo.pdf'));
+        stream.pipe(fs.createWriteStream('./githubprofile.pdf'));
       });
     })
   });
