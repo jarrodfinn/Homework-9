@@ -22,13 +22,14 @@ function init() {
     axios
       .get(queryUrl)
       .then(function(res) {
-        return generateHtml({ color, ...res.data });
+        const generatedHTML = generateHtml({ color, ...res.data });
+        fs.writeFile("tester.html", generatedHTML, (err => {
+          if (err) console.log(err)
+          pdf.create(generatedHTML, {format: "Letter"}).toStream(function(err, stream) {
+            stream.pipe(fs.createWriteStream("./githubprofile.pdf"));
+          });
+        }))
       })
-      .then(html => {
-        pdf.create(html).toStream(function(err, stream) {
-          stream.pipe(fs.createWriteStream("./githubprofile.pdf"));
-        });
-      });
   });
 }
 init();
